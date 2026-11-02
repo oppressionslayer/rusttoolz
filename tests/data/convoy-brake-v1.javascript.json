@@ -1,0 +1,1542 @@
+{
+  "format": "spindexin-convoy-reference",
+  "version": 1,
+  "profile": "convoy-brake-v1",
+  "cases": [
+    {
+      "name": "delay",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "delay",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 18,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 18,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 60,
+          "delay": 60,
+          "gap": 4,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 6.108417666118766,
+        "fittedGap": 6.25,
+        "peakClosure": 4.108402373737539,
+        "closestTick": 600,
+        "minimumGap": -0.10840237373753858,
+        "remainingFollowerTravel": 0.000015292381227180654,
+        "contact": {
+          "tick": 235,
+          "part": 0.08690069246475118,
+          "fraction": {
+            "n": "9491405770",
+            "d": "109221290427"
+          },
+          "atTick": 235.08690069246475,
+          "seconds": 1.9590575057705395,
+          "kind": "hit",
+          "normals": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "motion": {
+            "x": -5.250236041729771,
+            "z": 0,
+            "dx": 0.0027162238076137157,
+            "dz": 0,
+            "hx": 2.5,
+            "hz": 1.25
+          }
+        },
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 6.108417666118766
+          },
+          {
+            "tick": 60,
+            "cars": [
+              {
+                "distance": 7.567890581003095,
+                "speed": 12.671393052772334,
+                "address": "7"
+              },
+              {
+                "distance": 7.567890581003095,
+                "speed": 12.671393052772334,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 6.108417666118766
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 10.784554018849418,
+                "speed": 2.773967090168248,
+                "address": "7"
+              },
+              {
+                "distance": 12.895430366128869,
+                "speed": 8.92023343876928,
+                "address": "45"
+              }
+            ],
+            "gap": 1.8891236527205493,
+            "reserve": 3.997541318839315
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 11.642887871526861,
+                "speed": 0.13293985116074564,
+                "address": "7"
+              },
+              {
+                "distance": 15.655570658138094,
+                "speed": 0.42749407874091594,
+                "address": "45"
+              }
+            ],
+            "gap": -0.012682786611232899,
+            "reserve": 2.095734879507533
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 11.684022741160163,
+                "speed": 0.006371021519786417,
+                "address": "7"
+              },
+              {
+                "distance": 15.78784787256612,
+                "speed": 0.02048726511620964,
+                "address": "45"
+              }
+            ],
+            "gap": -0.10382513140595684,
+            "reserve": 2.004592534712809
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 11.68599409239427,
+                "speed": 0.0003053254148487192,
+                "address": "7"
+              },
+              {
+                "distance": 15.794187137822856,
+                "speed": 0.0009818335570356228,
+                "address": "45"
+              }
+            ],
+            "gap": -0.1081930454285871,
+            "reserve": 2.0002246206901786
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 11.686088567610131,
+                "speed": 0.000014632442954872914,
+                "address": "7"
+              },
+              {
+                "distance": 15.79449094134767,
+                "speed": 0.00004705348069901745,
+                "address": "45"
+              }
+            ],
+            "gap": -0.10840237373753858,
+            "reserve": 2.000015292381227
+          }
+        ]
+      }
+    },
+    {
+      "name": "together",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "together",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 18,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 18,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 60,
+          "delay": 0,
+          "gap": 4,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 2.0000047555439604,
+        "fittedGap": 2.25,
+        "peakClosure": 0,
+        "closestTick": 0,
+        "minimumGap": 4,
+        "remainingFollowerTravel": 0.000004755543960333693,
+        "contact": null,
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 60,
+            "cars": [
+              {
+                "distance": 7.567890581003095,
+                "speed": 12.671393052772334,
+                "address": "7"
+              },
+              {
+                "distance": 7.567890581003095,
+                "speed": 12.671393052772334,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 10.784554018849418,
+                "speed": 2.773967090168248,
+                "address": "7"
+              },
+              {
+                "distance": 10.784554018849418,
+                "speed": 2.773967090168248,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 11.642887871526861,
+                "speed": 0.13293985116074564,
+                "address": "7"
+              },
+              {
+                "distance": 11.642887871526861,
+                "speed": 0.13293985116074564,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 11.684022741160163,
+                "speed": 0.006371021519786417,
+                "address": "7"
+              },
+              {
+                "distance": 11.684022741160163,
+                "speed": 0.006371021519786417,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 11.68599409239427,
+                "speed": 0.0003053254148487192,
+                "address": "7"
+              },
+              {
+                "distance": 11.68599409239427,
+                "speed": 0.0003053254148487192,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 11.686088567610131,
+                "speed": 0.000014632442954872914,
+                "address": "7"
+              },
+              {
+                "distance": 11.686088567610131,
+                "speed": 0.000014632442954872914,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 2.0000047555439604
+          }
+        ]
+      }
+    },
+    {
+      "name": "wet",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "wet",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 18,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 18,
+              "wet": 1
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 0,
+          "delay": 24,
+          "gap": 6,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 8.569720125593864,
+        "fittedGap": 8.75,
+        "peakClosure": 6.567274088676109,
+        "closestTick": 600,
+        "minimumGap": -0.5672740886761094,
+        "remainingFollowerTravel": 0.002446036917754665,
+        "contact": {
+          "tick": 214,
+          "part": 0.9278822045348419,
+          "fraction": {
+            "n": "8246512743212",
+            "d": "8887456514317"
+          },
+          "atTick": 214.92788220453485,
+          "seconds": 1.7910656850377904,
+          "kind": "hit",
+          "normals": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "motion": {
+            "x": -5.257324374656303,
+            "z": 0,
+            "dx": 0.007893647082039656,
+            "dz": 0,
+            "hx": 2.5,
+            "hz": 1.25
+          }
+        },
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "45"
+              }
+            ],
+            "gap": 6,
+            "reserve": 8.569720125593864
+          },
+          {
+            "tick": 24,
+            "cars": [
+              {
+                "distance": 2.663846883109192,
+                "speed": 9.803548051971728,
+                "address": "7"
+              },
+              {
+                "distance": 3.3488719895443144,
+                "speed": 15.642034810379524,
+                "address": "45"
+              }
+            ],
+            "gap": 5.3149748935648775,
+            "reserve": 7.884695019158742
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 5.569644067859797,
+                "speed": 0.8626336373544679,
+                "address": "7"
+              },
+              {
+                "distance": 10.114120104069336,
+                "speed": 3.975841950167309,
+                "address": "45"
+              }
+            ],
+            "gap": 1.4555239637904611,
+            "reserve": 4.0252440893843255
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 5.836564196805773,
+                "speed": 0.041340932905299915,
+                "address": "7"
+              },
+              {
+                "distance": 12.003613087003798,
+                "speed": 0.7175446676767848,
+                "address": "45"
+              }
+            ],
+            "gap": -0.16704889019802494,
+            "reserve": 2.4026712353958395
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 5.84935610134554,
+                "speed": 0.001981226629095881,
+                "address": "7"
+              },
+              {
+                "distance": 12.344621515284073,
+                "speed": 0.12949970259499904,
+                "address": "45"
+              }
+            ],
+            "gap": -0.4952654139385331,
+            "reserve": 2.0744547116553314
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 5.849969141742308,
+                "speed": 0.00009494848519336167,
+                "address": "7"
+              },
+              {
+                "distance": 12.40616540521035,
+                "speed": 0.023371608385705768,
+                "address": "45"
+              }
+            ],
+            "gap": -0.556196263468042,
+            "reserve": 2.0135238621258225
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 5.849998521146047,
+                "speed": 0.000004550319841313687,
+                "address": "7"
+              },
+              {
+                "distance": 12.417272609822156,
+                "speed": 0.004218018015401111,
+                "address": "45"
+              }
+            ],
+            "gap": -0.5672740886761094,
+            "reserve": 2.002446036917755
+          }
+        ]
+      }
+    },
+    {
+      "name": "closing",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "closing",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 12,
+              "wet": 1
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 18,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 0,
+          "delay": 0,
+          "gap": 0.5,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 2.7033314488507116,
+        "fittedGap": 2.75,
+        "peakClosure": 0.7033314488507116,
+        "closestTick": 36,
+        "minimumGap": -0.20333144885071164,
+        "remainingFollowerTravel": 0.0000014788539484269471,
+        "contact": {
+          "tick": 14,
+          "part": 0.6460691840766606,
+          "fraction": {
+            "n": "31816654201880",
+            "d": "49246512581081"
+          },
+          "atTick": 14.64606918407666,
+          "seconds": 0.12205057653397217,
+          "kind": "hit",
+          "normals": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "motion": {
+            "x": -5.264129432824586,
+            "z": 0,
+            "dx": 0.02186984486000343,
+            "dz": 0,
+            "hx": 2.5,
+            "hz": 1.25
+          }
+        },
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 12,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "45"
+              }
+            ],
+            "gap": 0.5,
+            "reserve": 2.7033314488507116
+          },
+          {
+            "tick": 36,
+            "cars": [
+              {
+                "distance": 2.795292821333444,
+                "speed": 7.1797148304985425,
+                "address": "7"
+              },
+              {
+                "distance": 3.4986242701841554,
+                "speed": 7.235002245587223,
+                "address": "45"
+              }
+            ],
+            "gap": -0.20333144885071164,
+            "reserve": 2
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 5.702921816160056,
+                "speed": 2.1657138588617872,
+                "address": "7"
+              },
+              {
+                "distance": 5.569644067859797,
+                "speed": 0.8626336373544679,
+                "address": "45"
+              }
+            ],
+            "gap": 0.6332777483002587,
+            "reserve": 2
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 6.732163217265307,
+                "speed": 0.3908597098721676,
+                "address": "7"
+              },
+              {
+                "distance": 5.836564196805773,
+                "speed": 0.041340932905299915,
+                "address": "45"
+              }
+            ],
+            "gap": 1.3955990204595343,
+            "reserve": 2
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 6.917916747805976,
+                "speed": 0.07054085754507092,
+                "address": "7"
+              },
+              {
+                "distance": 5.84935610134554,
+                "speed": 0.001981226629095881,
+                "address": "45"
+              }
+            ],
+            "gap": 1.568560646460436,
+            "reserve": 2
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 6.951440830758009,
+                "speed": 0.012730942733446259,
+                "address": "7"
+              },
+              {
+                "distance": 5.849969141742308,
+                "speed": 0.00009494848519336167,
+                "address": "45"
+              }
+            ],
+            "gap": 1.6014716890157006,
+            "reserve": 2
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 6.957491128345914,
+                "speed": 0.002297631592850025,
+                "address": "7"
+              },
+              {
+                "distance": 5.849998521146047,
+                "speed": 0.000004550319841313687,
+                "address": "45"
+              }
+            ],
+            "gap": 1.6074926071998679,
+            "reserve": 2.0000014788539486
+          }
+        ]
+      }
+    },
+    {
+      "name": "throttle",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "throttle",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 10,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 10,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "throttle",
+          "leadTick": 120,
+          "delay": 90,
+          "gap": 5,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 13.217363973917395,
+        "fittedGap": 13.25,
+        "peakClosure": 11.217113227320265,
+        "closestTick": 600,
+        "minimumGap": -6.217113227320265,
+        "remainingFollowerTravel": 0.0002507465971310607,
+        "contact": {
+          "tick": 193,
+          "part": 0.6240291637714603,
+          "fraction": {
+            "n": "9293007266067",
+            "d": "14891943847468"
+          },
+          "atTick": 193.62402916377147,
+          "seconds": 1.6135335763647622,
+          "kind": "hit",
+          "normals": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "motion": {
+            "x": -5.316030788062697,
+            "z": 0,
+            "dx": 0.10581362522165705,
+            "dz": 0,
+            "hx": 2.5,
+            "hz": 1.25
+          }
+        },
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 10,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 10,
+                "address": "45"
+              }
+            ],
+            "gap": 5,
+            "reserve": 13.217363973917395
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 11.997264150395598,
+                "speed": 13.55263882117993,
+                "address": "7"
+              },
+              {
+                "distance": 11.997264150395598,
+                "speed": 13.55263882117993,
+                "address": "45"
+              }
+            ],
+            "gap": 5,
+            "reserve": 13.217363973917395
+          },
+          {
+            "tick": 210,
+            "cars": [
+              {
+                "distance": 15.950720025557603,
+                "speed": 1.3881592052968486,
+                "address": "7"
+              },
+              {
+                "distance": 22.750266870829883,
+                "speed": 14.98137118902164,
+                "address": "45"
+              }
+            ],
+            "gap": -1.79954684527228,
+            "reserve": 6.417817128645115
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 16.19078495118622,
+                "speed": 0.6494978956703226,
+                "address": "7"
+              },
+              {
+                "distance": 25.341109294799665,
+                "speed": 7.009548346037715,
+                "address": "45"
+              }
+            ],
+            "gap": -4.150324343613445,
+            "reserve": 4.067039630303951
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 16.3917556235033,
+                "speed": 0.03112659623312013,
+                "address": "7"
+              },
+              {
+                "distance": 27.510036481682206,
+                "speed": 0.33592623255302795,
+                "address": "45"
+              }
+            ],
+            "gap": -6.118280858178906,
+            "reserve": 2.0990831157384893
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 16.40138696028454,
+                "speed": 0.0014917138292800162,
+                "address": "7"
+              },
+              {
+                "distance": 27.613980345480957,
+                "speed": 0.01609895932611117,
+                "address": "45"
+              }
+            ],
+            "gap": -6.212593385196417,
+            "reserve": 2.0047705887209784
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 16.401848533344545,
+                "speed": 0.0000714890292468767,
+                "address": "7"
+              },
+              {
+                "distance": 27.61896176066481,
+                "speed": 0.000771527991172495,
+                "address": "45"
+              }
+            ],
+            "gap": -6.217113227320265,
+            "reserve": 2.00025074659713
+          }
+        ]
+      }
+    },
+    {
+      "name": "early",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "early",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 18,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 18,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 0,
+          "delay": 18,
+          "gap": 4,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 3.9704884216150713,
+        "fittedGap": 4,
+        "peakClosure": 1.9704863221543212,
+        "closestTick": 600,
+        "minimumGap": 2.029513677845679,
+        "remainingFollowerTravel": 0.000002099460750218708,
+        "contact": null,
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 18,
+                "address": "45"
+              }
+            ],
+            "gap": 4,
+            "reserve": 3.9704884216150713
+          },
+          {
+            "tick": 18,
+            "cars": [
+              {
+                "distance": 2.1411527371132286,
+                "speed": 11.411837731959306,
+                "address": "7"
+              },
+              {
+                "distance": 2.5552075246891417,
+                "speed": 16.200859747913764,
+                "address": "45"
+              }
+            ],
+            "gap": 3.585945212424087,
+            "reserve": 3.5564336340391582
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 5.569644067859797,
+                "speed": 0.8626336373544679,
+                "address": "7"
+              },
+              {
+                "distance": 7.42247855508671,
+                "speed": 1.224641192844317,
+                "address": "45"
+              }
+            ],
+            "gap": 2.1471655127730873,
+            "reserve": 2.1176539343881586
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 5.836564196805773,
+                "speed": 0.041340932905299915,
+                "address": "7"
+              },
+              {
+                "distance": 7.801412752585718,
+                "speed": 0.058689815924300365,
+                "address": "45"
+              }
+            ],
+            "gap": 2.0351514442200545,
+            "reserve": 2.0056398658351258
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 5.84935610134554,
+                "speed": 0.001981226629095881,
+                "address": "7"
+              },
+              {
+                "distance": 7.8195728295360825,
+                "speed": 0.002812656077024629,
+                "address": "45"
+              }
+            ],
+            "gap": 2.0297832718094577,
+            "reserve": 2.000271693424529
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 5.849969141742308,
+                "speed": 0.00009494848519336167,
+                "address": "7"
+              },
+              {
+                "distance": 7.820443134715769,
+                "speed": 0.0001347939856861613,
+                "address": "45"
+              }
+            ],
+            "gap": 2.029526007026539,
+            "reserve": 2.0000144286416104
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 5.849998521146047,
+                "speed": 0.000004550319841313687,
+                "address": "7"
+              },
+              {
+                "distance": 7.820484843300368,
+                "speed": 0.000006459879231442184,
+                "address": "45"
+              }
+            ],
+            "gap": 2.029513677845679,
+            "reserve": 2.00000209946075
+          }
+        ]
+      }
+    },
+    {
+      "name": "parked",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "parked",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 0,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 12,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 0,
+          "delay": 60,
+          "gap": 5,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 9.790728882102739,
+        "fittedGap": 10,
+        "peakClosure": 7.790725711740099,
+        "closestTick": 600,
+        "minimumGap": -2.790725711740099,
+        "remainingFollowerTravel": 0.0000031703626402224602,
+        "contact": {
+          "tick": 59,
+          "part": 0.35706597637349735,
+          "fraction": {
+            "n": "9433630367513",
+            "d": "26419852329042"
+          },
+          "atTick": 59.3570659763735,
+          "seconds": 0.49464221646977913,
+          "kind": "hit",
+          "normals": [
+            [
+              -1,
+              0
+            ]
+          ],
+          "motion": {
+            "x": -5.275136240735558,
+            "z": 0,
+            "dx": 0.07039662807095759,
+            "dz": 0,
+            "hx": 2.5,
+            "hz": 1.25
+          }
+        },
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 12,
+                "address": "45"
+              }
+            ],
+            "gap": 5,
+            "reserve": 9.790728882102739
+          },
+          {
+            "tick": 60,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 5.045260387335399,
+                "speed": 8.447595368514888,
+                "address": "45"
+              }
+            ],
+            "gap": -0.045260387335399166,
+            "reserve": 4.74546849476734
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 7.189702679232952,
+                "speed": 1.849311393445498,
+                "address": "45"
+              }
+            ],
+            "gap": -2.189702679232952,
+            "reserve": 2.601026202869787
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 7.761925247684579,
+                "speed": 0.08862656744049716,
+                "address": "45"
+              }
+            ],
+            "gap": -2.7619252476845793,
+            "reserve": 2.0288036344181597
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 7.789348494106786,
+                "speed": 0.0042473476798576115,
+                "address": "45"
+              }
+            ],
+            "gap": -2.789348494106786,
+            "reserve": 2.001380387995953
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 7.790662728262854,
+                "speed": 0.00020355027656581275,
+                "address": "45"
+              }
+            ],
+            "gap": -2.7906627282628538,
+            "reserve": 2.000066153839885
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 7.790725711740099,
+                "speed": 0.00000975496196991527,
+                "address": "45"
+              }
+            ],
+            "gap": -2.790725711740099,
+            "reserve": 2.00000317036264
+          }
+        ]
+      }
+    },
+    {
+      "name": "rest",
+      "receipt": {
+        "format": "spindexin-convoy-receipt",
+        "version": 1,
+        "recipe": {
+          "format": "spindexin-convoy-gap",
+          "version": 1,
+          "profile": "convoy-brake-v1",
+          "study": "C021",
+          "scene": "rest",
+          "cars": [
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "67700731342134771843858480"
+              },
+              "speed": 0,
+              "wet": 0
+            },
+            {
+              "card": {
+                "format": "rulerpack-car-card",
+                "version": 1,
+                "L": "262144",
+                "shift": 64,
+                "N": "9676756112698409179414818"
+              },
+              "speed": 0,
+              "wet": 0
+            }
+          ],
+          "top": 30,
+          "accel": 12,
+          "mode": "coast",
+          "leadTick": 0,
+          "delay": 0,
+          "gap": 2,
+          "margin": 2,
+          "cursor": 0,
+          "moment": "tick",
+          "hold": true,
+          "reserve": true,
+          "selected": 1
+        },
+        "profile": "convoy-brake-v1",
+        "required": 2,
+        "fittedGap": 2.25,
+        "peakClosure": 0,
+        "closestTick": 0,
+        "minimumGap": 2,
+        "remainingFollowerTravel": 0,
+        "contact": null,
+        "checkpoints": [
+          {
+            "tick": 0,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          },
+          {
+            "tick": 120,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          },
+          {
+            "tick": 240,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          },
+          {
+            "tick": 360,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          },
+          {
+            "tick": 480,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          },
+          {
+            "tick": 600,
+            "cars": [
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "7"
+              },
+              {
+                "distance": 0,
+                "speed": 0,
+                "address": "45"
+              }
+            ],
+            "gap": 2,
+            "reserve": 2
+          }
+        ]
+      }
+    }
+  ]
+}

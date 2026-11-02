@@ -1,0 +1,691 @@
+{
+  "format": "spindexin-driving-reference",
+  "version": 1,
+  "profile": "wcraft-flat-v1",
+  "hz": 120,
+  "cases": [
+    {
+      "name": "accelerate",
+      "handling": {
+        "speed": 30,
+        "accel": 12,
+        "turn": 1.2,
+        "grip": 1,
+        "wet": 0
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 5,
+          "ticks": 600
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": 0.0008284722222222222,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.09941666666666667,
+          "vx": 0.09941666666666667,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0017420918560606064,
+          "braking": false
+        },
+        {
+          "tick": 120,
+          "x": 4.8331361692129,
+          "z": 0,
+          "yaw": 0,
+          "speed": 8.596953577419225,
+          "vx": 8.596953577419225,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.022927444139323575,
+          "braking": false
+        },
+        {
+          "tick": 240,
+          "x": 15.825239906117567,
+          "z": 0,
+          "yaw": 0,
+          "speed": 12.857333175910448,
+          "vx": 12.857333175910448,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.015380468230326298,
+          "braking": false
+        },
+        {
+          "tick": 360,
+          "x": 29.869534112223338,
+          "z": 0,
+          "yaw": 0,
+          "speed": 14.968643206816656,
+          "vx": 14.968643206816656,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.011600291352370139,
+          "braking": false
+        },
+        {
+          "tick": 600,
+          "x": 61.73284342678858,
+          "z": 0,
+          "yaw": 0,
+          "speed": 16.53345475397959,
+          "vx": 16.53345475397959,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.008798460409414439,
+          "braking": false
+        }
+      ],
+      "firstCapTick": null
+    },
+    {
+      "name": "accelerate-brake",
+      "handling": {
+        "speed": 30,
+        "accel": 12,
+        "turn": 1.2,
+        "grip": 1,
+        "wet": 0
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 5,
+          "ticks": 240
+        },
+        {
+          "code": 13,
+          "ticks": 360
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": 0.0008284722222222222,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.09941666666666667,
+          "vx": 0.09941666666666667,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0017420918560606064,
+          "braking": false
+        },
+        {
+          "tick": 120,
+          "x": 4.8331361692129,
+          "z": 0,
+          "yaw": 0,
+          "speed": 8.596953577419225,
+          "vx": 8.596953577419225,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.022927444139323575,
+          "braking": false
+        },
+        {
+          "tick": 240,
+          "x": 15.825239906117567,
+          "z": 0,
+          "yaw": 0,
+          "speed": 12.857333175910448,
+          "vx": 12.857333175910448,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.015380468230326298,
+          "braking": false
+        },
+        {
+          "tick": 360,
+          "x": 19.803615986767937,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.6161760046785495,
+          "vx": 0.6161760046785495,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.04986123476957632,
+          "braking": true
+        },
+        {
+          "tick": 600,
+          "x": 20.003413253870033,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.0014151828259595374,
+          "vx": 0.0014151828259595374,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.04999999937490514,
+          "braking": true
+        }
+      ],
+      "firstCapTick": null
+    },
+    {
+      "name": "reverse",
+      "handling": {
+        "speed": 30,
+        "accel": 12,
+        "turn": 1.2,
+        "grip": 1,
+        "wet": 0
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 3,
+          "ticks": 600
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": -0.0008284722222222222,
+          "z": 0,
+          "yaw": 0,
+          "speed": -0.09941666666666667,
+          "vx": -0.09941666666666667,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.0017420918560606064,
+          "braking": true
+        },
+        {
+          "tick": 120,
+          "x": -4.8331361692129,
+          "z": 0,
+          "yaw": 0,
+          "speed": -8.596953577419225,
+          "vx": -8.596953577419225,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.022927444139323575,
+          "braking": true
+        },
+        {
+          "tick": 240,
+          "x": -15.825239906117567,
+          "z": 0,
+          "yaw": 0,
+          "speed": -12.857333175910448,
+          "vx": -12.857333175910448,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.015380468230326298,
+          "braking": true
+        },
+        {
+          "tick": 360,
+          "x": -29.25371321788658,
+          "z": 0,
+          "yaw": 0,
+          "speed": -13.5,
+          "vx": -13.5,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.013529201834308896,
+          "braking": true
+        },
+        {
+          "tick": 600,
+          "x": -56.25371321788599,
+          "z": 0,
+          "yaw": 0,
+          "speed": -13.5,
+          "vx": -13.5,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.013522727301893191,
+          "braking": true
+        }
+      ],
+      "firstCapTick": null
+    },
+    {
+      "name": "wet-turn",
+      "handling": {
+        "speed": 30,
+        "accel": 12,
+        "turn": 1.2,
+        "grip": 0.55,
+        "wet": 1
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 5,
+          "ticks": 180
+        },
+        {
+          "code": 8,
+          "ticks": 120
+        },
+        {
+          "code": 2,
+          "ticks": 60
+        },
+        {
+          "code": 1,
+          "ticks": 30
+        },
+        {
+          "code": 4,
+          "ticks": 30
+        },
+        {
+          "code": 13,
+          "ticks": 180
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": 0.00024559034706916476,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.09941666666666667,
+          "vx": 0.029470841648299773,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0017420918560606064,
+          "braking": false
+        },
+        {
+          "tick": 120,
+          "x": 4.665462541276069,
+          "z": 0,
+          "yaw": 0,
+          "speed": 8.596953577419225,
+          "vx": 8.477674719641199,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.022927444139323575,
+          "braking": false
+        },
+        {
+          "tick": 240,
+          "x": 15.23655461741354,
+          "z": 1.6847824442350745,
+          "yaw": 0.5999999999999872,
+          "speed": 12.857333175910448,
+          "vx": 10.72595106550078,
+          "vz": 6.972728882653001,
+          "steer_vis": 0.492035168331781,
+          "lean": 0.03423939025483973,
+          "squat": 0.015380468230326298,
+          "braking": false
+        },
+        {
+          "tick": 360,
+          "x": 23.80345923950948,
+          "z": 12.491068854388637,
+          "yaw": 0.5999999999999872,
+          "speed": 14.968643206816656,
+          "vx": 12.122142552904537,
+          "vz": 8.721247580554795,
+          "steer_vis": -0.48407235777284313,
+          "lean": -0.03758366267429689,
+          "squat": 0.011600291352370139,
+          "braking": false
+        },
+        {
+          "tick": 600,
+          "x": 35.23143620117983,
+          "z": 16.655626067660453,
+          "yaw": 0.2999999999999936,
+          "speed": 0.8079119621757966,
+          "vx": 0.7990814143062346,
+          "vz": 0.24718484783423855,
+          "steer_vis": -2.540642013545775e-07,
+          "lean": -5.196692586636762e-06,
+          "squat": -0.04999505875640868,
+          "braking": true
+        }
+      ],
+      "firstCapTick": null
+    },
+    {
+      "name": "reach-cap",
+      "handling": {
+        "speed": 20,
+        "accel": 16,
+        "turn": 1.2,
+        "grip": 1,
+        "wet": 0
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 5,
+          "ticks": 600
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": 0.0011046296296296297,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.13255555555555557,
+          "vx": 0.13255555555555557,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0017394558080808084,
+          "braking": false
+        },
+        {
+          "tick": 120,
+          "x": 6.4441815589505405,
+          "z": 0,
+          "yaw": 0,
+          "speed": 11.462604769892318,
+          "vx": 11.462604769892318,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.018928020493516214,
+          "braking": false
+        },
+        {
+          "tick": 240,
+          "x": 21.10031987482345,
+          "z": 0,
+          "yaw": 0,
+          "speed": 17.14311090121394,
+          "vx": 17.14311090121394,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.00884067686186192,
+          "braking": false
+        },
+        {
+          "tick": 360,
+          "x": 39.82604548296447,
+          "z": 0,
+          "yaw": 0,
+          "speed": 19.958190942422213,
+          "vx": 19.958190942422213,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0038003885813704527,
+          "braking": false
+        },
+        {
+          "tick": 600,
+          "x": 79.82575120048261,
+          "z": 0,
+          "yaw": 0,
+          "speed": 20,
+          "vx": 20,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.003181820981799664,
+          "braking": false
+        }
+      ],
+      "firstCapTick": 363
+    },
+    {
+      "name": "forward-to-reverse",
+      "handling": {
+        "speed": 30,
+        "accel": 12,
+        "turn": 1.2,
+        "grip": 1,
+        "wet": 0
+      },
+      "initial": {
+        "x": 0,
+        "z": 0,
+        "yaw": 0,
+        "speed": 0,
+        "vx": 0,
+        "vz": 0,
+        "steer_vis": 0,
+        "lean": 0,
+        "squat": 0,
+        "braking": false
+      },
+      "runs": [
+        {
+          "code": 5,
+          "ticks": 360
+        },
+        {
+          "code": 3,
+          "ticks": 240
+        }
+      ],
+      "checkpoints": [
+        {
+          "tick": 0,
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0,
+          "vx": 0,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0,
+          "braking": false
+        },
+        {
+          "tick": 1,
+          "x": 0.0008284722222222222,
+          "z": 0,
+          "yaw": 0,
+          "speed": 0.09941666666666667,
+          "vx": 0.09941666666666667,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.0017420918560606064,
+          "braking": false
+        },
+        {
+          "tick": 120,
+          "x": 4.8331361692129,
+          "z": 0,
+          "yaw": 0,
+          "speed": 8.596953577419225,
+          "vx": 8.596953577419225,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.022927444139323575,
+          "braking": false
+        },
+        {
+          "tick": 240,
+          "x": 15.825239906117567,
+          "z": 0,
+          "yaw": 0,
+          "speed": 12.857333175910448,
+          "vx": 12.857333175910448,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.015380468230326298,
+          "braking": false
+        },
+        {
+          "tick": 360,
+          "x": 29.869534112223338,
+          "z": 0,
+          "yaw": 0,
+          "speed": 14.968643206816656,
+          "vx": 14.968643206816656,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": 0.011600291352370139,
+          "braking": false
+        },
+        {
+          "tick": 600,
+          "x": 28.700809803873042,
+          "z": 0,
+          "yaw": 0,
+          "speed": -9.497880621111202,
+          "vx": -9.497880621111202,
+          "vz": 0,
+          "steer_vis": 0,
+          "lean": 0,
+          "squat": -0.02139036181788602,
+          "braking": true
+        }
+      ],
+      "firstCapTick": null
+    }
+  ],
+  "source_sha256": "21af6fc3c949cd27334ac356654467e860a5ac9fac392051d4483d68e2dbbc72"
+}

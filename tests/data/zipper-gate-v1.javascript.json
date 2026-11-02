@@ -1,0 +1,2326 @@
+{
+  "format": "spindexin-zipper-reference",
+  "version": 1,
+  "profile": "zipper-gate-v1",
+  "cases": [
+    {
+      "name": "balanced",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "balanced",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 90
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 90
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 555,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0,
+              4
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 57,
+            "exit": 93,
+            "wait": 57,
+            "eligible": [
+              1,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 57,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 30,
+            "tick": 114,
+            "exit": 150,
+            "wait": 84,
+            "eligible": [
+              1,
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 114,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 30,
+            "tick": 171,
+            "exit": 207,
+            "wait": 141,
+            "eligible": [
+              2,
+              5
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 171,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 60,
+            "tick": 228,
+            "exit": 264,
+            "wait": 168,
+            "eligible": [
+              2,
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 228,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 60,
+            "tick": 285,
+            "exit": 321,
+            "wait": 225,
+            "eligible": [
+              3,
+              6
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 285,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 90,
+            "tick": 342,
+            "exit": 378,
+            "wait": 252,
+            "eligible": [
+              3,
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 342,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 90,
+            "tick": 399,
+            "exit": 435,
+            "wait": 309,
+            "eligible": [
+              7
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 399,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "other",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "other",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 90
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 90
+              }
+            ]
+          ],
+          "startLane": 1,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 555,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 57,
+            "exit": 93,
+            "wait": 57,
+            "eligible": [
+              0,
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 57,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 30,
+            "tick": 114,
+            "exit": 150,
+            "wait": 84,
+            "eligible": [
+              1,
+              5
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 114,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 30,
+            "tick": 171,
+            "exit": 207,
+            "wait": 141,
+            "eligible": [
+              1,
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 171,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 60,
+            "tick": 228,
+            "exit": 264,
+            "wait": 168,
+            "eligible": [
+              2,
+              6
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 228,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 60,
+            "tick": 285,
+            "exit": 321,
+            "wait": 225,
+            "eligible": [
+              2,
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 285,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 90,
+            "tick": 342,
+            "exit": 378,
+            "wait": 252,
+            "eligible": [
+              3,
+              7
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 342,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 90,
+            "tick": 399,
+            "exit": 435,
+            "wait": 309,
+            "eligible": [
+              3
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 399,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "late",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "late",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 20
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 40
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 60
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 180
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 200
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 220
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 240
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 555,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 20,
+            "tick": 57,
+            "exit": 93,
+            "wait": 37,
+            "eligible": [
+              1
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 57,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 40,
+            "tick": 114,
+            "exit": 150,
+            "wait": 74,
+            "eligible": [
+              2
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 114,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 60,
+            "tick": 171,
+            "exit": 207,
+            "wait": 111,
+            "eligible": [
+              3
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 171,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 180,
+            "tick": 228,
+            "exit": 264,
+            "wait": 48,
+            "eligible": [
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 228,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 200,
+            "tick": 285,
+            "exit": 321,
+            "wait": 85,
+            "eligible": [
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 285,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 220,
+            "tick": 342,
+            "exit": 378,
+            "wait": 122,
+            "eligible": [
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 342,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 240,
+            "tick": 399,
+            "exit": 435,
+            "wait": 159,
+            "eligible": [
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 399,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "single",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "single",
+          "lanes": [
+            [],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 90
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 327,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 1,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 30,
+            "tick": 57,
+            "exit": 93,
+            "wait": 27,
+            "eligible": [
+              1
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 57,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 2,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 60,
+            "tick": 114,
+            "exit": 150,
+            "wait": 54,
+            "eligible": [
+              2
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 114,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 3,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 90,
+            "tick": 171,
+            "exit": 207,
+            "wait": 81,
+            "eligible": [
+              3
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 171,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "oldest",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "oldest",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 0
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 1
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 1
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 1
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 1
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "arrival",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 555,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 0,
+            "tick": 57,
+            "exit": 93,
+            "wait": 57,
+            "eligible": [
+              1,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 57,
+            "arrivalIdle": 0,
+            "reason": "oldest",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 0,
+            "tick": 114,
+            "exit": 150,
+            "wait": 114,
+            "eligible": [
+              2,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 114,
+            "arrivalIdle": 0,
+            "reason": "oldest",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 0,
+            "tick": 171,
+            "exit": 207,
+            "wait": 171,
+            "eligible": [
+              3,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 171,
+            "arrivalIdle": 0,
+            "reason": "oldest",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 1,
+            "tick": 228,
+            "exit": 264,
+            "wait": 227,
+            "eligible": [
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 228,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 1,
+            "tick": 285,
+            "exit": 321,
+            "wait": 284,
+            "eligible": [
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 285,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 1,
+            "tick": 342,
+            "exit": 378,
+            "wait": 341,
+            "eligible": [
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 342,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 1,
+            "tick": 399,
+            "exit": 435,
+            "wait": 398,
+            "eligible": [
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 399,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "81",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "spaced",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "spaced",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 240
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 240
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 240
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 240
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 120
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 180
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 240
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "fixed",
+          "gap": 3,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 3,
+        "halfMax": 2.75,
+        "clearanceTicks": 57,
+        "stride": 57,
+        "end": 624,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              4
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 120,
+            "tick": 120,
+            "exit": 156,
+            "wait": 0,
+            "eligible": [
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 57,
+            "arrivalIdle": 63,
+            "reason": "only",
+            "pairGap": {
+              "n": "51",
+              "d": "4"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 180,
+            "tick": 180,
+            "exit": 216,
+            "wait": 0,
+            "eligible": [
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 177,
+            "arrivalIdle": 3,
+            "reason": "only",
+            "pairGap": {
+              "n": "17",
+              "d": "4"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 240,
+            "tick": 240,
+            "exit": 276,
+            "wait": 0,
+            "eligible": [
+              0,
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 237,
+            "arrivalIdle": 3,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "17",
+              "d": "4"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 240,
+            "tick": 297,
+            "exit": 333,
+            "wait": 57,
+            "eligible": [
+              1,
+              7
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 297,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 240,
+            "tick": 354,
+            "exit": 390,
+            "wait": 114,
+            "eligible": [
+              1
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 354,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "19",
+              "d": "5"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 240,
+            "tick": 411,
+            "exit": 447,
+            "wait": 171,
+            "eligible": [
+              2
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 411,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "33",
+              "d": "10"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 240,
+            "tick": 468,
+            "exit": 504,
+            "wait": 228,
+            "eligible": [
+              3
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 468,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "71",
+              "d": "20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "quick",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "quick",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 90
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 90
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 30,
+          "gateTicks": 18,
+          "gapMode": "fixed",
+          "gap": 0,
+          "delay": 24,
+          "wet": 0,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 0,
+        "halfMax": 2.75,
+        "clearanceTicks": 22,
+        "stride": 22,
+        "end": 292,
+        "brake": null,
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 18,
+            "wait": 0,
+            "eligible": [
+              0,
+              4
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 22,
+            "exit": 40,
+            "wait": 22,
+            "eligible": [
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 22,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "1",
+              "d": "4"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 30,
+            "tick": 44,
+            "exit": 62,
+            "wait": 14,
+            "eligible": [
+              1,
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 44,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "1",
+              "d": "4"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 30,
+            "tick": 66,
+            "exit": 84,
+            "wait": 36,
+            "eligible": [
+              2,
+              5
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 66,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "1",
+              "d": "2"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 60,
+            "tick": 88,
+            "exit": 106,
+            "wait": 28,
+            "eligible": [
+              2,
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 88,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "1",
+              "d": "4"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 60,
+            "tick": 110,
+            "exit": 128,
+            "wait": 50,
+            "eligible": [
+              3,
+              6
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 110,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "1",
+              "d": "2"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 90,
+            "tick": 132,
+            "exit": 150,
+            "wait": 42,
+            "eligible": [
+              3,
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 132,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "1",
+              "d": "1"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 90,
+            "tick": 154,
+            "exit": 172,
+            "wait": 64,
+            "eligible": [
+              7
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 154,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "1",
+              "d": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "braking",
+      "receipt": {
+        "format": "spindexin-zipper-receipt",
+        "version": 1,
+        "profile": "zipper-gate-v1",
+        "recipe": {
+          "format": "spindexin-zipper-merge",
+          "version": 1,
+          "profile": "zipper-gate-v1",
+          "study": "C022",
+          "scene": "braking",
+          "lanes": [
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "9676571645257672083898648"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "29020048841878392412045628"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "145077591607669446730842464"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "1228275790065163840840794500"
+                },
+                "ready": 90
+              }
+            ],
+            [
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "67701174063992540873097288"
+                },
+                "ready": 0
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "299815669299764290805039216"
+                },
+                "ready": 30
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "609301416990872307920273560"
+                },
+                "ready": 60
+              },
+              {
+                "card": {
+                  "format": "rulerpack-car-card",
+                  "version": 1,
+                  "L": "262144",
+                  "shift": 64,
+                  "N": "2466212213788705668701356224"
+                },
+                "ready": 90
+              }
+            ]
+          ],
+          "startLane": 0,
+          "policy": "zipper",
+          "speed": 18,
+          "gateTicks": 36,
+          "gapMode": "braking",
+          "gap": 3,
+          "delay": 90,
+          "wet": 1,
+          "margin": 2,
+          "cursor": 0,
+          "selected": 0,
+          "showPaths": true
+        },
+        "gap": 8.25,
+        "halfMax": 2.75,
+        "clearanceTicks": 92,
+        "stride": 92,
+        "end": 800,
+        "brake": {
+          "required": 8.19389717100263,
+          "fit": 8.25,
+          "tail": 0.0042632337397492635
+        },
+        "events": [
+          {
+            "order": 0,
+            "actor": 0,
+            "label": "A1",
+            "address": "45",
+            "lane": 0,
+            "position": 0,
+            "ready": 0,
+            "tick": 0,
+            "exit": 36,
+            "wait": 0,
+            "eligible": [
+              0,
+              4
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 0,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": null
+          },
+          {
+            "order": 1,
+            "actor": 4,
+            "label": "B1",
+            "address": "7",
+            "lane": 1,
+            "position": 0,
+            "ready": 0,
+            "tick": 92,
+            "exit": 128,
+            "wait": 92,
+            "eligible": [
+              1,
+              4
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 92,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "171",
+              "d": "20"
+            }
+          },
+          {
+            "order": 2,
+            "actor": 1,
+            "label": "A2",
+            "address": "3",
+            "lane": 0,
+            "position": 1,
+            "ready": 30,
+            "tick": 184,
+            "exit": 220,
+            "wait": 154,
+            "eligible": [
+              1,
+              5
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 184,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "171",
+              "d": "20"
+            }
+          },
+          {
+            "order": 3,
+            "actor": 5,
+            "label": "B2",
+            "address": "31",
+            "lane": 1,
+            "position": 1,
+            "ready": 30,
+            "tick": 276,
+            "exit": 312,
+            "wait": 246,
+            "eligible": [
+              2,
+              5
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 276,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "44",
+              "d": "5"
+            }
+          },
+          {
+            "order": 4,
+            "actor": 2,
+            "label": "A3",
+            "address": "15",
+            "lane": 0,
+            "position": 2,
+            "ready": 60,
+            "tick": 368,
+            "exit": 404,
+            "wait": 308,
+            "eligible": [
+              2,
+              6
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 368,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "171",
+              "d": "20"
+            }
+          },
+          {
+            "order": 5,
+            "actor": 6,
+            "label": "B3",
+            "address": "63",
+            "lane": 1,
+            "position": 2,
+            "ready": 60,
+            "tick": 460,
+            "exit": 496,
+            "wait": 400,
+            "eligible": [
+              3,
+              6
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 460,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "44",
+              "d": "5"
+            }
+          },
+          {
+            "order": 6,
+            "actor": 3,
+            "label": "A4",
+            "address": "127",
+            "lane": 0,
+            "position": 3,
+            "ready": 90,
+            "tick": 552,
+            "exit": 588,
+            "wait": 462,
+            "eligible": [
+              3,
+              7
+            ],
+            "preferredBefore": 0,
+            "slotOpen": 552,
+            "arrivalIdle": 0,
+            "reason": "zipper",
+            "pairGap": {
+              "n": "93",
+              "d": "10"
+            }
+          },
+          {
+            "order": 7,
+            "actor": 7,
+            "label": "B4",
+            "address": "255",
+            "lane": 1,
+            "position": 3,
+            "ready": 90,
+            "tick": 644,
+            "exit": 680,
+            "wait": 554,
+            "eligible": [
+              7
+            ],
+            "preferredBefore": 1,
+            "slotOpen": 644,
+            "arrivalIdle": 0,
+            "reason": "only",
+            "pairGap": {
+              "n": "93",
+              "d": "10"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
