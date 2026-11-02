@@ -1,5 +1,5 @@
 //! **Montgomery multiplication on `u64` limbs**: the classic CIOS loop with `u128` intermediates
-//! for an odd modulus, and a windowed modpow on top of it. No GMP. Measured against
+//! for an odd modulus, and a windowed modpow on top of it. Pure Rust. Measured against
 //! `num-bigint`'s own modpow it comes out even from 512 to 8,192 bits, because `num-bigint`
 //! already reduces in Montgomery form; the ladder and the forge keep `num-bigint`'s, and this
 //! module is the place a Karatsuba-in-Montgomery multiply would go to pull ahead.

@@ -5,8 +5,9 @@ quadrillion from a 15 MB net. Roll a proven prime up the Pocklington ladder to a
 proof carried along, 4,096 bits in four seconds. Forge `k·2ⁿ ± 1` twins and prove both sides,
 21 of them at 82 digits in a tenth of a second. Settle 88% of any range with free logic and no
 primality test. Read rule 30's edge off a table. Rebuild the XOR difference triangle and the
-XOR build system from one row. No GMP; big integers are `num-bigint`, everything within the
-net's reach is `u64`, and the hunts run on every core with rayon.
+XOR build system from one row. Pure Rust by default, so it compiles to wasm: big integers are
+`num-bigint`, everything within the net's reach is `u64`, and the hunts run on every core with
+rayon. Native builds can turn on GMP with `--features gmp` for the big rolls.
 
 ```
 cargo add rusttoolz
@@ -147,6 +148,23 @@ cars on one lane: the closure, the tail, the required and fitted gap, and first 
 to the reference files the Spindexin site, the engine and `sitoolz` share: district 45 cell
 for cell, the six studio trajectories, the 56 contact scenes, and the six portable district
 drives replayed at zero difference with their three first contacts exact.
+
+## Two engines under the ladder
+
+Every modular exponentiation in the ladder and the forge goes through `modpow`, which has two
+engines. The default is `num-bigint`'s own, pure Rust, which is what compiles to wasm and what the
+game engine ships. For native builds that want the speed:
+
+```
+cargo build --release --features gmp
+cargo run --release --features gmp --example rollball -- 8192
+```
+
+With the feature every exponentiation is GMP's `powm` through the `rug` crate, which builds its own
+GMP the first time. On the desktop that measured the numbers above, M127 to 4,096 bits takes 11.8 s
+pure and 2.2 s with GMP; to 8,192 bits, 7 min 24 s pure and 2 min 47 s with GMP. The gap widens
+with the size, since the exponentiation is the whole cost at the top rung. `rusttoolz::modpow::ENGINE`
+says which engine a build carries.
 
 ## The certificate, in three languages
 

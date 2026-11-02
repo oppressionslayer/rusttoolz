@@ -5,6 +5,7 @@
 //! in parallel.
 
 use num_bigint::BigUint;
+use crate::modpow::modpow;
 use num_integer::Integer;
 use num_traits::{One, Zero};
 use rayon::prelude::*;
@@ -44,10 +45,10 @@ pub fn proth_proven(n_val: &BigUint, fps: &[u64]) -> bool {
         let mut ok = false;
         for &a in WIT.iter() {
             let ab = BigUint::from(a);
-            if !ab.modpow(&nm1, n_val).is_one() {
+            if !modpow(&ab, &nm1, n_val).is_one() {
                 return false;
             }
-            let g = (ab.modpow(&e, n_val) + n_val - BigUint::one()) % n_val;
+            let g = (modpow(&ab, &e, n_val) + n_val - BigUint::one()) % n_val;
             if g.gcd(n_val).is_one() {
                 ok = true;
                 break;
@@ -89,7 +90,7 @@ pub fn lucas_uv(m: &BigUint, p: i64, q: i64, mo: &BigUint) -> (BigUint, BigUint)
     };
     let (pb, qb) = (to(p), to(q));
     let d = to(p * p - 4 * q);
-    let inv2 = BigUint::from(2u32).modpow(&(mo - BigUint::from(2u32)), mo); // mo is odd and prime-tested
+    let inv2 = modpow(&BigUint::from(2u32), &(mo - BigUint::from(2u32)), mo); // mo is odd and prime-tested
     let (mut u, mut v, mut qk) = (BigUint::zero(), BigUint::from(2u32) % mo, BigUint::one());
     let bits = m.bits();
     for i in (0..bits).rev() {

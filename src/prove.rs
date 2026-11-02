@@ -3,6 +3,7 @@
 //! `q = N`. Every rung's `N − 1` is factored by construction, so the certificate is the climb.
 
 use num_bigint::BigUint;
+use crate::modpow::modpow;
 use num_integer::Integer;
 use num_traits::{One, Zero};
 use rayon::prelude::*;
@@ -47,7 +48,7 @@ pub fn probable_prime(n: &BigUint) -> bool {
     let s = nm1.trailing_zeros().unwrap_or(0);
     let d = &nm1 >> s;
     'w: for &a in WITNESSES.iter() {
-        let mut x = BigUint::from(a).modpow(&d, n);
+        let mut x = modpow(&BigUint::from(a), &d, n);
         if x.is_one() || x == nm1 {
             continue;
         }
@@ -78,10 +79,10 @@ pub fn pocklington(n: &BigUint, q: &BigUint) -> Verdict {
     let e = &nm1 / q;
     for &a in WITNESSES.iter() {
         let ab = BigUint::from(a) % n;
-        if !ab.modpow(&nm1, n).is_one() {
+        if !modpow(&ab, &nm1, n).is_one() {
             return Verdict::Composite;
         }
-        let g = (ab.modpow(&e, n) + n - BigUint::one()) % n;
+        let g = (modpow(&ab, &e, n) + n - BigUint::one()) % n;
         if g.gcd(n).is_one() {
             return Verdict::Proven(a);
         }
@@ -96,10 +97,10 @@ pub fn gcd_certify(n: &BigUint, q: &BigUint, a: u32) -> bool {
         return false;
     }
     let ab = BigUint::from(a) % n;
-    if !ab.modpow(&nm1, n).is_one() {
+    if !modpow(&ab, &nm1, n).is_one() {
         return false;
     }
-    let g = (ab.modpow(&(&nm1 / q), n) + n - BigUint::one()) % n;
+    let g = (modpow(&ab, &(&nm1 / q), n) + n - BigUint::one()) % n;
     g.gcd(n).is_one()
 }
 
@@ -176,7 +177,7 @@ pub fn build_up(seed: Rung, bits: u64) -> Vec<Rung> {
                 .par_iter()
                 .filter_map(|r| {
                     let n = &two_q * r + BigUint::one();
-                    if !BigUint::from(2u32).modpow(&(&n - BigUint::one()), &n).is_one() {
+                    if !modpow(&BigUint::from(2u32), &(&n - BigUint::one()), &n).is_one() {
                         return None;
                     }
                     match pocklington(&n, &q) {
@@ -212,7 +213,7 @@ pub fn build_up_small(seed: Rung, bits: u64) -> Vec<Rung> {
         let mut r: u64 = 1;
         loop {
             let n = &two_q * r + BigUint::one();
-            if BigUint::from(2u32).modpow(&(&n - BigUint::one()), &n).is_one() {
+            if modpow(&BigUint::from(2u32), &(&n - BigUint::one()), &n).is_one() {
                 if let Verdict::Proven(a) = pocklington(&n, &q) {
                     chain.push(Rung { n, q, a });
                     break;

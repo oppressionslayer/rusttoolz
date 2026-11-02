@@ -19,7 +19,8 @@
 //! - [`contact`]: first contact along a straight segment, in exact integers.
 //! - [`cert`]: certificates as text in the Python and JavaScript conventions, so all three verify each other.
 //!
-//! No GMP. Big integers are `num-bigint`; everything within the net's reach is `u64`.
+//! Pure Rust by default, the wasm path: big integers are `num-bigint`, everything within the net's
+//! reach is `u64`. Native builds may turn on GMP with `--features gmp` ([`modpow`]).
 
 pub mod buildsystem;
 pub mod cert;
@@ -31,6 +32,7 @@ pub mod district;
 pub mod edgelaw;
 pub mod gaps;
 pub mod lanes;
+pub mod modpow;
 pub mod mont;
 pub mod motion;
 pub mod net;

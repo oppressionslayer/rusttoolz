@@ -16,6 +16,13 @@ num-bigint = "0.4"
 num-integer = "0.1"
 num-traits = "0.2"
 rayon = "1.10"
+# GMP, opt-in for native builds only: `--features gmp`. The default stays pure Rust so the crate
+# compiles to wasm; with the feature every modular exponentiation goes through GMP.
+rug = { version = "1.24", optional = true, default-features = false, features = ["integer", "std"] }
+
+[features]
+default = []
+gmp = ["dep:rug"]
 
 [dev-dependencies]
 # only the tests read JSON: the reference cases the Spindexin studios generate from sitoolz
