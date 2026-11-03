@@ -1,6 +1,6 @@
 [package]
 name = "rusttoolz"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "Lars Rocha's sitoolz in Rust: the prime net, the Pocklington ladder, the twin forge, and the XOR difference triangle."
 license = "MIT"

@@ -17,6 +17,8 @@
 //! - [`city`]: Lars's addressed city, the law behind the Spindexin district builder and the engine's `wlaw::city`.
 //! - [`motion`]: the one tick law of speed the site and the engine drive by.
 //! - [`contact`]: first contact along a straight segment, in exact integers.
+//! - [`store`]: the prime store: every proven Mersenne, rung, Proth and twin written once as JSON lines,
+//!   read back to skip and to resume.
 //! - [`cert`]: certificates as text in the Python and JavaScript conventions, so all three verify each other.
 //!
 //! Pure Rust by default, the wasm path: big integers are `num-bigint`, everything within the net's
@@ -38,6 +40,7 @@ pub mod motion;
 pub mod net;
 pub mod numtoolz;
 pub mod prove;
+pub mod store;
 pub mod twin;
 pub mod xortri;
 

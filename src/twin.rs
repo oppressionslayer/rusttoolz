@@ -194,7 +194,7 @@ pub fn bad_residues(n: u32, bound: u64) -> Vec<(u64, u64, u64)> {
 
 /// The `k` in `[k_lo, k_hi)` no sieve prime kills on either side.
 pub fn sieve_k(k_lo: u64, k_hi: u64, bad: &[(u64, u64, u64)]) -> Vec<u64> {
-    let n = (k_hi - k_lo) as usize;
+    let n = k_hi.saturating_sub(k_lo) as usize;
     let mut alive = vec![true; n];
     for &(p, r1, r2) in bad {
         for r in [r1, r2] {
@@ -306,4 +306,61 @@ pub fn hunt_stream(h: &Hunt) -> std::io::Result<Vec<Twin>> {
         }
     }
     Ok(twins)
+}
+
+/// **One proven prime, `k·2^n + 1`.** The cheap road: `N − 1 = k·2^n` is factored the moment it
+/// is written, so one witness per small prime of `k` and one for 2 prove `N` outright. No chain.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct Proth {
+    pub k: u64,
+    pub n: u32,
+    pub digits: usize,
+    pub value: BigUint,
+    /// The primes of `k·2^n`: every factor the witnesses were checked against.
+    pub factors: Vec<u64>,
+}
+
+/// The `k` in `[k_lo, k_hi)` no sieve prime kills on the `+1` side alone.
+pub fn sieve_k_plus(k_lo: u64, k_hi: u64, bad: &[(u64, u64, u64)]) -> Vec<u64> {
+    let n = k_hi.saturating_sub(k_lo) as usize;
+    let mut alive = vec![true; n];
+    for &(p, _, r2) in bad {
+        let mut i = ((r2 + p - k_lo % p) % p) as usize;
+        while i < n {
+            alive[i] = false;
+            i += p as usize;
+        }
+    }
+    (0..n).filter(|&i| alive[i]).map(|i| k_lo + i as u64).collect()
+}
+
+/// **The first `k` in `[k_lo, k_hi)` with `k·2^n + 1` proven prime**, screened on every core;
+/// `None` when the range has none. The order is by `k`, so the answer is reproducible.
+pub fn proth_first(n: u32, k_lo: u64, k_hi: u64, sieve_bound: u64) -> Option<Proth> {
+    use rayon::prelude::*;
+    // a sieve prime must stay below 2^n, or at small n it would strike N itself
+    let bound = if n < 40 { sieve_bound.min((1u64 << n) - 1) } else { sieve_bound };
+    let bad = bad_residues(n, bound);
+    let survivors = sieve_k_plus(k_lo.max(1), k_hi, &bad);
+    let base = BigUint::one() << n;
+    survivors.par_iter().find_first(|&&k| {
+        let v = BigUint::from(k) * &base + BigUint::one();
+        proth_proven(&v, &factor_small(k))
+    }).map(|&k| {
+        let value = BigUint::from(k) * &base + BigUint::one();
+        Proth { k, n, digits: value.to_string().len(), factors: factor_small(k), value }
+    })
+}
+
+#[cfg(test)]
+mod proth_tests {
+    use super::*;
+
+    #[test]
+    fn the_first_proth_prime_at_small_n_is_known() {
+        // 12·2^64 + 1 is the first k·2^64 + 1 prime; 2^8 + 1 = 257 the first at n = 8
+        assert_eq!(proth_first(64, 1, 1000, 1000).map(|p| p.k), Some(12));
+        assert_eq!(proth_first(8, 1, 100, 100_000).map(|p| (p.k, p.value.to_string())), Some((1, "257".to_string())));
+        assert!(proth_first(64, 1000, 10, 1000).is_none());
+    }
 }

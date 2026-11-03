@@ -136,3 +136,100 @@ pub fn digital_root(n: &BigUint) -> u32 {
     let r = u32::try_from(n % BigUint::from(9u32)).unwrap();
     if r == 0 { 9 } else { r }
 }
+
+/// **Lars's all-ones step.** `2^a − 1` is `2^b − 1` shifted up by `a − b` with the gap filled
+/// with ones: `(n << gap) ^ ((1 << gap) − 1)`, and the two pieces share no set bit so XOR, OR
+/// and addition agree. `extend_mersenne(M89, 18) = M107`, `extend_mersenne(M107, 20) = M127`.
+/// It holds for every gap, prime exponent or not; which gaps land on a prime is the Mersenne
+/// sequence itself.
+pub fn extend_mersenne(n: &BigUint, gap: u64) -> BigUint {
+    (n << gap) ^ ((BigUint::one() << gap) - BigUint::one())
+}
+
+/// The differences between successive known exponents: the Mersenne sequence as the gaps that
+/// `extend_mersenne` walks from a seed. `M2` and `gaps` rebuild all 52.
+pub fn mersenne_gaps() -> Vec<u64> {
+    MERSENNE_EXPONENTS.windows(2).map(|w| w[1] - w[0]).collect()
+}
+
+/// **The quick fail.** Every factor of `2^p − 1` (p an odd prime) is `q = 2kp + 1` with
+/// `q ≡ ±1 (mod 8)`, so the only candidates are those, and each is one `powmod`: `2^p mod q`
+/// is 1 or it is not. The first factor found up to `k_max`, or `None` when none is: a Mersenne
+/// number with no such factor still has to face Lucas–Lehmer; one with a factor never does.
+/// `q` stays below 2^63, so `k_max` is capped for large `p`.
+pub fn mersenne_factor(p: u64, k_max: u64) -> Option<u64> {
+    if p < 3 || !crate::is_prime_u64(p) {
+        return None;
+    }
+    let k_cap = ((1u64 << 63) - 1) / (2 * p);
+    for k in 1..=k_max.min(k_cap) {
+        let q = 2 * k * p + 1;
+        // for a small p the candidate can reach 2^p − 1 itself, which divides itself
+        if p < 64 && q * q > (1u64 << p) - 1 {
+            return None;
+        }
+        let r = q & 7;
+        if r != 1 && r != 7 {
+            continue;
+        }
+        // a composite q never beats its own prime factors to the front: skip the obvious
+        if q % 3 == 0 || q % 5 == 0 || q % 7 == 0 || q % 11 == 0 || q % 13 == 0 {
+            continue;
+        }
+        if crate::powmod(2, p, q) == 1 {
+            return Some(q);
+        }
+    }
+    None
+}
+
+/// **Where the next one is expected**, by the Lenstra–Pomerance–Wagstaff heuristic: exponents
+/// grow by about `2^(1/e^γ) ≈ 1.4757` on average. Returns the ratio fitted to the known
+/// exponents (the geometric mean of successive ratios), the expected next exponent from the
+/// largest known, and the heuristic's own constant for comparison. A guess of odds, not of a prime.
+pub fn estimate_next() -> (f64, f64, f64) {
+    let e = &MERSENNE_EXPONENTS;
+    let logs: f64 = e.windows(2).map(|w| (w[1] as f64 / w[0] as f64).ln()).sum();
+    let fitted = (logs / (e.len() - 1) as f64).exp();
+    let gamma = 0.577_215_664_901_532_9_f64;
+    let heuristic = 2f64.powf(1.0 / gamma.exp());
+    (fitted, *e.last().unwrap() as f64 * fitted, heuristic)
+}
+
+#[cfg(test)]
+mod mersenne_tests {
+    use super::*;
+
+    #[test]
+    fn the_quick_fail_finds_the_classic_factors_and_spares_the_primes() {
+        assert_eq!(mersenne_factor(11, 10), Some(23)); // 2047 = 23 · 89, k = 1
+        assert_eq!(mersenne_factor(23, 10), Some(47)); // k = 1
+        assert_eq!(mersenne_factor(29, 10), Some(233)); // k = 4
+        assert_eq!(mersenne_factor(37, 10), Some(223)); // k = 3
+        assert_eq!(mersenne_factor(67, 1000), None, "M67's factors are too big for k ≤ 1000");
+        for &p in MERSENNE_EXPONENTS.iter().take(20) {
+            assert_eq!(mersenne_factor(p, 10_000), None, "M{p} is prime");
+        }
+        assert_eq!(mersenne_factor(15, 10), None, "not a prime exponent");
+    }
+
+    #[test]
+    fn the_all_ones_step_walks_the_whole_list_from_m2() {
+        let m = |p: u64| (BigUint::one() << p) - BigUint::one();
+        assert_eq!(extend_mersenne(&m(89), 18), m(107));
+        assert_eq!(extend_mersenne(&m(107), 20), m(127));
+        assert_eq!(extend_mersenne(&m(7), 4), m(11), "every gap, prime or not: 2047");
+        let mut n = m(2);
+        for g in mersenne_gaps().into_iter().take(20) {
+            n = extend_mersenne(&n, g);
+        }
+        assert_eq!(n, m(MERSENNE_EXPONENTS[20]));
+    }
+
+    #[test]
+    fn the_estimate_is_near_the_heuristic_constant() {
+        let (fitted, next, heuristic) = estimate_next();
+        assert!((fitted - heuristic).abs() < 0.12, "{fitted} vs {heuristic}");
+        assert!(next > 136_279_841.0 && next < 250_000_000.0);
+    }
+}

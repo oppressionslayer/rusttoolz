@@ -31,8 +31,9 @@ pub enum Verdict {
     Inconclusive,
 }
 
-/// A strong probable-prime screen with the twelve witnesses: exact below `3.3·10^24`, a gate
-/// against Fermat pseudoprimes above.
+/// A strong probable-prime screen with the twelve witnesses: exact below `3.18·10^23` (the
+/// primes to 37; a thirteenth base, 41, would reach `3.3·10^24`), a gate against Fermat
+/// pseudoprimes above.
 pub fn probable_prime(n: &BigUint) -> bool {
     let two = BigUint::from(2u32);
     if *n < two {
@@ -65,6 +66,11 @@ pub fn probable_prime(n: &BigUint) -> bool {
 
 /// **One Pocklington step with `q` supplied.** `q | N − 1`, `q > √N`, then a witness. Gated by
 /// the probable-prime screen so a composite `q` cannot smuggle a pseudoprime through.
+///
+/// **The proof is only as good as `q`.** The theorem needs `q` prime; this step does not check
+/// that, the ladder does, by handing in the rung it has already proven. A `q` built from the
+/// shape of `N` alone — `2^(p−1) − 1` for a Mersenne, say, which is divisible by 3 — proves
+/// nothing even when the witness arithmetic comes out 1.
 pub fn pocklington(n: &BigUint, q: &BigUint) -> Verdict {
     if *n < BigUint::from(4u32) {
         return if *n < BigUint::from(2u32) { Verdict::Composite } else { Verdict::Proven(0) };
@@ -153,10 +159,7 @@ pub fn build_up(seed: Rung, bits: u64) -> Vec<Rung> {
                 Some((p, (p - inv) % p))
             })
             .collect();
-        // the largest R the theorem allows, (q − 1)/2, or just enough to land on `bits`
-        let cap: BigUint = (&q - BigUint::one()) >> 1u32;
-        let want = bits.saturating_sub(q.bits() + 1);
-        let start: BigUint = if want < cap.bits() { BigUint::one() << want } else { cap.clone() };
+        let (cap, start) = rung_start(&q, bits);
         // **candidates in parallel**: a batch of R below the start, every core on its own Fermat
         // screen, and the largest R that proves is the rung (the batch is small, so the bit
         // length stays what the start set)
@@ -169,6 +172,11 @@ pub fn build_up(seed: Rung, bits: u64) -> Vec<Rung> {
                 .map(|d| if up { &top + BigUint::from(d) } else if top > BigUint::from(d) { &top - BigUint::from(d) } else { BigUint::zero() })
                 .filter(|r| !r.is_zero() && *r <= cap)
                 .filter(|r| {
+                    // a rung that is itself a small prime (2·3·1 + 1 = 7) is barred by its own
+                    // residue; below the sieve bound the candidate is tested, not sieved
+                    if &two_q * r + BigUint::one() <= BigUint::from(20_000u32) {
+                        return true;
+                    }
                     let r_small: u64 = u64::try_from(r % 20_000u64).unwrap();
                     !barred.iter().any(|&(p, b)| r_small % p == b)
                 })
@@ -192,6 +200,8 @@ pub fn build_up(seed: Rung, bits: u64) -> Vec<Rung> {
             }
             if up {
                 top += BigUint::from(batch as u64);
+                // every R to the cap has been tried: say so rather than spin
+                assert!(top <= cap, "no rung above q = {q} lands on {bits} bits: every R to (q-1)/2 was tried");
             } else if top > BigUint::from(batch as u64) {
                 top -= BigUint::from(batch as u64);
             } else {
@@ -201,6 +211,106 @@ pub fn build_up(seed: Rung, bits: u64) -> Vec<Rung> {
         }
     }
     chain
+}
+
+/// **Where a rung's search starts.** The cap is the largest `R` the theorem allows, `(q − 1)/2`;
+/// the start is `2^want` when that lands on `bits`, else the cap. The climb walks down from the
+/// start in batches and keeps the largest `R` that proves, so the rung is a function of `q` and
+/// `bits` alone and its **offset** `start − R` names it in a few digits.
+pub fn rung_start(q: &BigUint, bits: u64) -> (BigUint, BigUint) {
+    let cap: BigUint = (q - BigUint::one()) >> 1u32;
+    let want = bits.saturating_sub(q.bits() + 1);
+    let start: BigUint = if want < cap.bits() { BigUint::one() << want } else { cap.clone() };
+    (cap, start)
+}
+
+/// **The recipe of a climb**: for each rung above the seed, `start − R` (negative when the walk
+/// went up), so the chain is the seed, the target, and one small integer per rung. `None` when
+/// the chain was not one climb to `bits`: a ladder resumed toward several targets has rungs
+/// whose starts were set by other targets, and their offsets are not small numbers.
+pub fn recipe(chain: &[Rung], bits: u64) -> Option<Vec<i64>> {
+    chain
+        .windows(2)
+        .map(|w| {
+            let (q, n) = (&w[0].n, &w[1].n);
+            let r = (n - BigUint::one()) / (BigUint::from(2u32) * q);
+            let (_, start) = rung_start(q, bits);
+            let (s, r) = (num_bigint::BigInt::from(start), num_bigint::BigInt::from(r));
+            i64::try_from(s - r).ok()
+        })
+        .collect()
+}
+
+/// **A climb back from its recipe**, no search: each rung's `R` is `start − offset`, and the
+/// Pocklington step is run once to find the witness, so the result is proven and not merely
+/// recalled. `None` when an offset does not land on a rung.
+pub fn rebuild(seed: Rung, bits: u64, offsets: &[i64]) -> Option<Vec<Rung>> {
+    let mut chain = vec![seed];
+    for &off in offsets {
+        let q = chain.last().unwrap().n.clone();
+        let (cap, start) = rung_start(&q, bits);
+        let r = num_bigint::BigInt::from(start) - num_bigint::BigInt::from(off);
+        let r = BigUint::try_from(r).ok()?;
+        if r.is_zero() || r > cap {
+            return None;
+        }
+        let n = BigUint::from(2u32) * &q * &r + BigUint::one();
+        match pocklington(&n, &q) {
+            Verdict::Proven(a) => chain.push(Rung { n, q, a }),
+            _ => return None,
+        }
+    }
+    Some(chain)
+}
+
+/// **Lars's descent: the certificate from the top prime alone.** A doubling rung takes
+/// `R = (q − 1)/2 − offset` with the offset a few thousand at most, so
+/// `N = 2·q·R + 1 = q² − q·(2·offset + 1) + 1`: **the rung below is the square root of the rung
+/// above**, `q = isqrt(N) + offset + 1` to within the offset. So from the top prime alone: take
+/// the integer square root, walk a few thousand steps up from it, and the value that divides
+/// `(N − 1)/2` and is prime is `q`; the Pocklington step proves `N` from it; then take the
+/// square root of `q`, down to a Mersenne. Nothing is stored and no primality is searched for:
+/// every `q` is read off the number above it, and the chain comes back seed first for
+/// `verify_certificate` to replay. Measured on the M127 ladder: every doubling rung's `q` sits
+/// within 4,000 of `isqrt(N)`.
+///
+/// What it cannot read: a rung **sized to land on a bit count** (`rollball -- 11000` from 10,000
+/// bits) has `R` near `2^want` instead, nowhere near `q/2`, so no root recovers it. The descent
+/// stops there with a non-Mersenne bottom, `verify_certificate` says so, and the store holds
+/// those rungs. `window` is how far above the root to look; 8,192 covers every offset seen.
+pub fn descend(top: &BigUint, floor_bits: u64, window: u64) -> Vec<Rung> {
+    let mut rungs: Vec<Rung> = Vec::new();
+    let mut n = top.clone();
+    loop {
+        if mersenne_big(&n) || n.bits() <= floor_bits {
+            rungs.push(Rung { n, q: BigUint::zero(), a: 0 });
+            break;
+        }
+        let half = (&n - BigUint::one()) >> 1u32;
+        let root = n.sqrt();
+        let mut found: Option<Rung> = None;
+        for d in 0..=window {
+            let q = &root + BigUint::from(d);
+            if (&half % &q).is_zero() && probable_prime(&q) {
+                if let Verdict::Proven(a) = pocklington(&n, &q) {
+                    found = Some(Rung { n: n.clone(), q, a });
+                    break;
+                }
+            }
+        }
+        match found {
+            Some(r) => {
+                n = r.q.clone();
+                rungs.push(r);
+            }
+            None => {
+                rungs.push(Rung { n, q: BigUint::zero(), a: 0 });
+                break;
+            }
+        }
+    }
+    rungs.reverse();
+    rungs
 }
 
 /// The same climb with the **smallest** `R` at every rung: the Cunningham-like ladder, many
@@ -248,13 +358,25 @@ pub fn verify_certificate(chain: &[Rung], net: Option<&crate::net::Net>) -> bool
 }
 
 fn mersenne_u64(v: u64) -> bool {
-    v > 1 && (v + 1).is_power_of_two() && lucas_lehmer((v + 1).trailing_zeros())
+    v > 1 && (v + 1).is_power_of_two() && (known_mersenne((v + 1).trailing_zeros()) || lucas_lehmer((v + 1).trailing_zeros()))
 }
 
 fn mersenne_big(n: &BigUint) -> bool {
     let p = n.bits();
     let m = (BigUint::one() << p) - BigUint::one();
-    *n == m && p <= u32::MAX as u64 && lucas_lehmer(p as u32)
+    *n == m && p <= u32::MAX as u64 && (known_mersenne(p as u32) || lucas_lehmer(p as u32))
+}
+
+/// **The 52 Mersenne primes are certified facts**, not work: a seed `2^p − 1` with `p` in
+/// [`crate::numtoolz::MERSENNE_EXPONENTS`] is accepted without replaying Lucas–Lehmer, which
+/// for `p = 82,589,933` no laptop would finish. Any other exponent is still tested.
+pub fn known_mersenne(p: u32) -> bool {
+    crate::numtoolz::MERSENNE_EXPONENTS.contains(&(p as u64))
+}
+
+/// A seed rung on a known Mersenne prime, no Lucas–Lehmer: `None` unless `p` is one of the 52.
+pub fn known_mersenne_seed(p: u32) -> Option<Rung> {
+    known_mersenne(p).then(|| Rung { n: (BigUint::one() << p) - BigUint::one(), q: BigUint::zero(), a: 0 })
 }
 
 /// The odd part of `x`.

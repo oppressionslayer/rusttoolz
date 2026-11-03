@@ -1,6 +1,7 @@
 # rusttoolz
 
-**Lars Rocha's sitoolz in Rust: the parts with real compute.** Prove any number to 72
+**Lars Rocha's sitoolz in Rust: the parts with real compute.** Make a 3,892-digit proven prime in
+43 seconds and a 623-digit twin, both sides proven, in 13. Prove any number to 72
 quadrillion from a 15 MB net. Roll a proven prime up the Pocklington ladder to any size with the
 proof carried along, 4,096 bits in four seconds. Forge `k·2ⁿ ± 1` twins and prove both sides,
 21 of them at 82 digits in a tenth of a second. Settle 88% of any range with free logic and no
@@ -73,6 +74,60 @@ rung, many short steps. Seeds are Mersenne primes
 by `lucas_lehmer` or any prime the net proves. `verify_certificate` replays the climb: a seed
 must be a Mersenne prime or in the net, every other rung must chain from the one below and pass
 its witness, and a tampered witness or a shifted `q` fails.
+
+## The descent
+
+Lars's observation, measured and made a function: a doubling rung takes `R = (q − 1)/2 − offset`,
+so `N = q² − q·(2·offset + 1) + 1` and **the rung below is the square root of the rung above**,
+to within the offset. `descend(top, floor, window)` takes the integer square root, walks a few
+thousand steps up from it, keeps the value that divides `(N − 1)/2` and is prime, proves `N`
+from it by the Pocklington step, and repeats down to a Mersenne. The whole certificate comes
+out of the top prime alone, nothing stored and no primality searched for: the 4,064-bit rung
+gives its five rungs down to M127 in 0.35 s, verified. A rung sized to land on a bit count is
+not the square of the one below and stops the descent; the store holds those.
+
+```
+cargo run --release --features gmp --example descend -- <N or a file holding it>
+```
+
+## The store
+
+Everything the examples prove is written down once, in `primes.jsonl` (or wherever
+`RUSTTOOLZ_STORE` points), one JSON object per line: a Mersenne exponent with its verdict, a
+rung of a ladder with its bits and witness and `q`, a Proth prime or a twin from the forge.
+`Store::open` reads it, `record` appends a fact it does not hold, `ladder(base)` rebuilds a
+climb so `rollball` starts from the top rung it has instead of from M127, `mersenne(p)` answers
+without a Lucas–Lehmer, and `seed_known_mersennes` puts the 52 certified Mersenne primes in as
+facts. A search that stops leaves every line before it good. A climb to one target is also
+stored as a **recipe**: its offsets, `start − R` at each rung, a few digits apiece, from which
+`rebuild(seed, bits, offsets)` remakes every rung exactly and proves it again on the way.
+A ladder from the Python package or the browser goes in too: `store_import` reads its
+certificate (the `[N, q, a]` lists, or Python's `repr` of `build_up`'s dicts), keeps the rows that
+chain, and verifies them against the store — the seed may be a Mersenne prime or any prime the
+store already holds — before recording every rung. So a Python climb seeded on one of our rungs
+becomes ours, and a chain whose seed nobody has proven is refused.
+GPT's Python offsets for M127 to 4,096 bits (76, 544, 62, 124, 1724, 1139) rebuild a proven
+ladder here too, but not the same rungs: the two ladders pick `R` differently, which the store
+test prints rather than assumes.
+
+```
+cargo run --release --features gmp --example rollballmersennes -- 4423 8192   # every known Mersenne to p = 4423, each rolled to 8,192 bits, every rung stored
+cargo run --release --features gmp --example rollball -- 4423                  # reads the M127 ladder back and climbs on
+```
+
+## The Mersenne sieve
+
+A new Mersenne prime cannot be found quickly, but most candidates can be failed quickly: every
+factor of `2^p − 1` is `q = 2kp + 1` with `q ≡ ±1 (mod 8)`, so `mersenne_factor(p, k_max)` tries
+only those, one `powmod` each, and a factor is a proven composite in microseconds.
+`estimate_next` fits the Lenstra–Pomerance–Wagstaff ratio to the 52 known exponents: they grow
+by about 1.42 a step against the heuristic's 1.4758, which puts the next one near `p ≈ 1.9·10^8`
+with a wide spread — odds, not a prediction. The sieve example records every quick fail with its
+factor and lists the survivors, the only exponents a Lucas–Lehmer would be spent on:
+
+```
+cargo run --release --example mersenne_sieve -- 136279841 136400000 1000000   # lo hi k_max
+```
 
 ## The forge
 
@@ -149,6 +204,57 @@ to the reference files the Spindexin site, the engine and `sitoolz` share: distr
 for cell, the six studio trajectories, the 56 contact scenes, and the six portable district
 drives replayed at zero difference with their three first contacts exact.
 
+## Make your own
+
+```
+cargo run --release --features gmp --example proth -- 12919          # a 3,892-digit proven prime, 43 s
+cargo run --release --features gmp --example twin_forge -- 2048 2000000   # a 623-digit twin, both sides proven, 13 s
+```
+
+**A twin prime, both sides proven**, `k·2ⁿ ± 1`, with the `+1` side by Pocklington and the `−1`
+side by Lucas:
+
+```
+cargo run --release --features gmp --example twin_forge -- 320 400000     # n, k to
+```
+
+| `n` | digits | this desktop, `--features gmp` | pure Rust |
+|---|---|---|---|
+| 320 | 102 | 22 twins in 0.18 s | about 3× slower |
+| 1024 | 313 | the first in 3 s | |
+| 2048 | 623 | the first in 13 s | |
+
+In code, `twin::hunt(n, k_from, k_to)` streams `Twin` packets, each with both proofs; `prove_pair`
+settles one `k`. The example takes `n`, or `n k_to`, or `n k_from k_to`.
+
+**Proven primes by the thousand.** The same hunt proves every `+1` prime it meets: at `n = 320`,
+222 proven primes of about 100 digits in 0.18 s, over a thousand a second, each with its
+Pocklington certificate. **One proven prime, fast.** A single `k·2ⁿ + 1` needs no chain: `N − 1` is factored the moment
+it is written, so one witness per small prime proves it.
+
+```
+cargo run --release --features gmp --example proth -- 12919     # k = 366, 3,892 digits, proven in 43 s here
+```
+
+`twin::proth_first(n, k_from, k_to, sieve_bound)` is the call; the search is by `k` in order on
+every core, so the answer is the same on every machine.
+
+**A proven prime of any size.** Roll M127 up the Pocklington ladder, bits doubling every rung,
+and write the chain as a certificate anyone can replay, in Rust, in Python (`sitoolz`) or in the
+browser:
+
+```
+cargo run --release --features gmp --example rollball -- 4096      # 2.2 s here; 8,192 bits in 2 min 47 s
+cargo run --release --example cert_json -- 512 slip                # the chain as JSON
+```
+
+```rust
+use rusttoolz::prove::{build_up, mersenne_seed, verify_certificate};
+let chain = build_up(mersenne_seed(127).unwrap(), 4096);
+assert!(verify_certificate(&chain, None));
+let text = rusttoolz::cert::to_json(&chain, rusttoolz::cert::Convention::Numtools);
+```
+
 ## Two engines under the ladder
 
 Every modular exponentiation in the ladder and the forge goes through `modpow`, which has two
@@ -186,7 +292,8 @@ layout, and `from_left_edge` / `from_right_edge` rebuild the input from one edge
 ```
 cargo test --release                                  # the net against a sieve and against the Python net, the ladder, the forge, the triangle
 cargo clippy --release --all-targets -- -D warnings
-cargo run --release --example rollball -- 4096        # M127 up the ladder, timed and verified
+cargo run --release --example rollball -- 4096        # M127 up the ladder, timed, verified and stored
+cargo run --release --example rollballmersennes -- 607 1024   # the known Mersennes to p = 607, each rolled and stored
 cargo run --release --example twin_forge -- 256 1 300000
 cargo run --release --example verdict -- 2 10000      # the free-logic accounting
 cargo run --release --example edge                    # rule 30's edge, lookup against measurement
